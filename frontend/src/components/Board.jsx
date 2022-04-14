@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import Cell from "./Cell";
 import StatusPlayer from "./StatusPlayer"
+import history from "../services/history"
 
-function Board() {
+function Board({ setGameOver }) {
 
     const [data, setData] = useState(['', '', '', '', '', '', '', '', ''])
     const [playerX, setPlayerX] = useState(true)
@@ -40,6 +41,7 @@ function Board() {
         setPlayerX(true)
         setCountMovs(0)
         setWinner(null)
+        setGameOver(false)
     }
 
     const handleClick = (index) => {
@@ -58,6 +60,16 @@ function Board() {
             setWinner({ ...status, date: new Date() })
         }
     }, [data])
+
+    useEffect(() => {
+        if(winner){
+            history.create({
+                date: winner.date,
+                status: winner.won ? `Ganó ${winner.player}` : "Empatados"
+            })
+            setGameOver(true)
+        }
+    }, [winner])
 
     return (
         <>

@@ -11,10 +11,7 @@
 
 .game{
   width: 100%;
-  padding: 20px;
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
+  padding: 20px 0;
 }
 
 .game .board{
@@ -34,4 +31,8 @@
 
 .btnPlayAgain{
   padding: 8px;
+}
+
+.container-history{
+  padding: 10px 0;
 }
