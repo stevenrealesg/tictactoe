@@ -1,7 +1,7 @@
 import axios from 'axios'
 // const dotenv = require('dotenv');
 // dotenv.config();
-const URL_API = process.env.URL_API || 'http://localhost:3001'
+const URL_API = process.env.REACT_APP_URL_API || 'http://localhost:3001'
 
 const getList = async () => {
     try {
